@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify - Web Player: Music for everyone</title>
+  
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Spotify Stylesheet -->
+  <link rel="stylesheet" href="01_Style.css">
+</head>
+<body>
+
+  <!-- Pure CSS Interactive Toggles (No JS required) -->
+  <input type="checkbox" id="play-pause-toggle" class="d-none">
+  <input type="checkbox" id="heart-toggle" class="d-none">
+  
+  <!-- Main Filter Radio Inputs -->
+  <input type="radio" name="main-filter" id="filter-all" class="d-none" checked>
+  <input type="radio" name="main-filter" id="filter-music" class="d-none">
+  <input type="radio" name="main-filter" id="filter-podcasts" class="d-none">
+
+  <div class="spotify-container">
+    
+    <!-- TOP NAVIGATION BAR -->
+    <header class="top-navbar">
+      <div class="nav-left">
+        <a href="#" class="spotify-logo">
+          <i class="bi bi-spotify text-success fs-1"></i>
+          <span class="d-none d-md-inline fs-5">Spotify</span>
+        </a>
+        <a href="#" class="btn-icon-circle ms-2" title="Home">
+          <i class="bi bi-house-door-fill"></i>
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <div class="search-box">
+          <i class="bi bi-search fs-5 text-subdued"></i>
+          <input type="text" placeholder="What do you want to play?">
+          <i class="bi bi-box-seam fs-5 text-subdued ms-auto" title="Browse"></i>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <a href="#" class="btn-pill-light d-none d-lg-inline-block">Explore Premium</a>
+        <a href="#" class="btn-pill-dark d-none d-sm-flex">
+          <i class="bi bi-arrow-down-circle"></i>
+          <span>Install App</span>
+        </a>
+        <button class="btn-icon-circle" title="What's New">
+          <i class="bi bi-bell"></i>
+        </button>
+        <button class="avatar-btn" title="Profile">
+          <span>N</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- APP BODY (SIDEBAR + MAIN CONTENT) -->
+    <div class="spotify-body">
+      
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <button class="library-btn">
+            <i class="bi bi-collection-play-fill fs-4"></i>
+            <span class="sidebar-header-title">Your Library</span>
+          </button>
+          <div class="sidebar-header-actions">
+            <button class="btn-icon-sm" title="Create playlist or folder">
+              <i class="bi bi-plus-lg"></i>
+            </button>
+            <button class="btn-icon-sm" title="Show more">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-pills">
+          <span class="badge-pill">Playlists</span>
+          <span class="badge-pill">Artists</span>
+          <span class="badge-pill">Podcasts</span>
+        </div>
+
+        <!-- Scrollable Library List -->
+        <div class="sidebar-content">
+          
+          <!-- Liked Songs -->
+          <a href="#" class="library-item">
+            <div class="library-item-img liked-gradient">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+            <div class="library-item-info">
+              <div class="library-item-title">Liked Songs</div>
+              <div class="library-item-sub">
+                <i class="bi bi-pin-fill pin-icon me-1"></i> Playlist • 248 songs
+              </div>
+            </div>
+          </a>
+
+          <!-- Artists & Mix Items -->
+          <a href="#" class="library-item">
+            <img src="aujla.jpg" alt="Karan Aujla" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Karan Aujla</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="arjit.jpg" alt="Arijit Singh" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Arijit Singh</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="mix1.jpg" alt="Daily Mix 1" class="library-item-img">
+            <div class="library-item-info">
+              <div class="library-item-title">Daily Mix 1</div>
+              <div class="library-item-sub">Playlist • Karan Aujla, Jass Manak</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="shreya.jpg" alt="Shreya Ghoshal" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Shreya Ghoshal</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="arrahman.jpg" alt="AR Rahman" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">AR Rahman</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="mix2.jpg" alt="Top Hits 2026" class="library-item-img">
+            <div class="library-item-info">
+              <div class="library-item-title">Top Hits India</div>
+              <div class="library-item-sub">Playlist • Spotify</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="sonu.jpg" alt="Sonu Nigam" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Sonu Nigam</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="jass.jpg" alt="Jass Manak" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Jass Manak</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+          <a href="#" class="library-item">
+            <img src="rahat.jpg" alt="Rahat Fateh Ali Khan" class="library-item-img rounded-circle">
+            <div class="library-item-info">
+              <div class="library-item-title">Rahat Fateh Ali Khan</div>
+              <div class="library-item-sub">Artist</div>
+            </div>
+          </a>
+
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT PANEL -->
+      <main class="main-content">
+        
+        <!-- Filter Tabs Header -->
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <label for="filter-all" class="badge-pill filter-btn-all">All</label>
+          <label for="filter-music" class="badge-pill filter-btn-music">Music</label>
+          <label for="filter-podcasts" class="badge-pill filter-btn-podcasts">Podcasts</label>
+        </div>
+
+        <!-- Quick Access 2-Column Grid -->
+        <section class="section-quick">
+          <div class="quick-grid">
+            
+            <div class="quick-card">
+              <div class="quick-card-img liked-gradient d-flex align-items-center justify-content-center">
+                <i class="bi bi-heart-fill fs-3"></i>
+              </div>
+              <span class="quick-card-title">Liked Songs</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+            <div class="quick-card">
+              <img src="aujla.jpg" alt="Karan Aujla" class="quick-card-img">
+              <span class="quick-card-title">Karan Aujla Radio</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+            <div class="quick-card">
+              <img src="mix1.jpg" alt="Daily Mix 1" class="quick-card-img">
+              <span class="quick-card-title">Daily Mix 1</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+            <div class="quick-card">
+              <img src="bulleya.jpg" alt="Bulleya" class="quick-card-img">
+              <span class="quick-card-title">Bulleya - Ae Dil Hai Mushkil</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+            <div class="quick-card">
+              <img src="arrahman.jpg" alt="AR Rahman" class="quick-card-img">
+              <span class="quick-card-title">AR Rahman Essentials</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+            <div class="quick-card">
+              <img src="shreya.jpg" alt="Shreya Ghoshal" class="quick-card-img">
+              <span class="quick-card-title">Shreya Ghoshal Melodies</span>
+              <button class="btn-play-hover" title="Play">
+                <i class="bi bi-play-fill fs-4"></i>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- POPULAR ARTISTS SECTION -->
+        <section class="section-music">
+          <div class="section-header">
+            <h2 class="section-title">Popular Artists</h2>
+            <a href="#" class="show-all-link">Show all</a>
+          </div>
+
+          <div class="cards-grid">
+            
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="aujla.jpg" alt="Karan Aujla">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Karan Aujla</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="arjit.jpg" alt="Arijit Singh">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Arijit Singh</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="arrahman.jpg" alt="AR Rahman">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">AR Rahman</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="shreya.jpg" alt="Shreya Ghoshal">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Shreya Ghoshal</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="rahat.jpg" alt="Rahat Fateh Ali Khan">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Rahat Fateh Ali Khan</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="sonu.jpg" alt="Sonu Nigam">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Sonu Nigam</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper rounded-circle-wrapper">
+                <img src="jass.jpg" alt="Jass Manak">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Jass Manak</div>
+              <div class="card-subtitle">Artist</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TOP MIXES SECTION -->
+        <section class="section-music">
+          <div class="section-header">
+            <h2 class="section-title">Made For You</h2>
+            <a href="#" class="show-all-link">Show all</a>
+          </div>
+
+          <div class="cards-grid">
+            
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix1.jpg" alt="Daily Mix 1">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Daily Mix 1</div>
+              <div class="card-subtitle">Karan Aujla, Jass Manak, Honey Singh and more</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix2.jpg" alt="Daily Mix 2">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Daily Mix 2</div>
+              <div class="card-subtitle">Arijit Singh, Pritam, Atif Aslam and more</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix3.jpg" alt="Daily Mix 3">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Daily Mix 3</div>
+              <div class="card-subtitle">AR Rahman, Sonu Nigam, Shankar Mahadevan</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix4.jpg" alt="Daily Mix 4">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Daily Mix 4</div>
+              <div class="card-subtitle">Shreya Ghoshal, Rahat Fateh Ali Khan and more</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PODCASTS SECTION -->
+        <section class="section-podcasts">
+          <div class="section-header">
+            <h2 class="section-title">Trending Podcasts & Shows</h2>
+            <a href="#" class="show-all-link">Show all</a>
+          </div>
+
+          <div class="cards-grid">
+            
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix3.jpg" alt="The Ranveer Show">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">The Ranveer Show</div>
+              <div class="card-subtitle">BeerBiceps • Spotify Original</div>
+            </div>
+
+            <div class="card-spotify">
+              <div class="card-img-wrapper">
+                <img src="mix4.jpg" alt="Stories of India">
+                <button class="btn-play-hover" title="Play">
+                  <i class="bi bi-play-fill fs-4"></i>
+                </button>
+              </div>
+              <div class="card-title">Maha Bharat Stories</div>
+              <div class="card-subtitle">Mythological Tales • Audio Show</div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- BOTTOM FIXED PLAYER FOOTER -->
+    <footer class="player-footer">
+      
+      <!-- Left Track Info -->
+      <div class="player-track-info">
+        <img src="bulleya.jpg" alt="Bulleya" class="player-track-img">
+        <div class="d-flex flex-column overflow-hidden">
+          <a href="#" class="player-track-title text-truncate">Bulleya</a>
+          <a href="#" class="player-track-artist text-truncate">Pritam, Amit Mishra, Shilpa Rao</a>
+        </div>
+        <!-- Pure CSS Interactive Like Heart Toggle -->
+        <label for="heart-toggle" class="heart-label ms-2" title="Save to Your Library">
+          <i class="bi bi-heart heart-empty fs-5"></i>
+          <i class="bi bi-heart-fill heart-filled fs-5 text-success"></i>
+        </label>
+      </div>
+
+      <!-- Center Controls & Range Bar -->
+      <div class="player-controls-container">
+        
+        <div class="playback-controls">
+          <button class="btn-ctrl" title="Enable Shuffle">
+            <i class="bi bi-shuffle"></i>
+          </button>
+          <button class="btn-ctrl" title="Previous">
+            <i class="bi bi-skip-start-fill fs-4"></i>
+          </button>
+          
+          <!-- Pure CSS Play/Pause Checkbox Toggle Button -->
+          <label for="play-pause-toggle" class="play-pause-btn" title="Play / Pause">
+            <i class="bi bi-play-fill play-icon fs-3"></i>
+            <i class="bi bi-pause-fill pause-icon fs-3"></i>
+          </label>
+          
+          <button class="btn-ctrl" title="Next">
+            <i class="bi bi-skip-end-fill fs-4"></i>
+          </button>
+          <button class="btn-ctrl btn-ctrl-active" title="Enable Repeat">
+            <i class="bi bi-repeat"></i>
+          </button>
+        </div>
+
+        <div class="playback-bar">
+          <span class="time-stamp">01:24</span>
+          <input type="range" class="custom-range" value="28" min="0" max="100">
+          <span class="time-stamp">05:57</span>
+        </div>
+
+      </div>
+
+      <!-- Right Volume & View Options -->
+      <div class="player-options">
+        <button class="btn-ctrl" title="Now Playing View">
+          <i class="bi bi-file-earmark-slides"></i>
+        </button>
+        <button class="btn-ctrl" title="Lyrics">
+          <i class="bi bi-quote"></i>
+        </button>
+        <button class="btn-ctrl" title="Queue">
+          <i class="bi bi-list"></i>
+        </button>
+        <button class="btn-ctrl" title="Connect to a device">
+          <i class="bi bi-laptop"></i>
+        </button>
+        
+        <div class="volume-bar-container ms-1">
+          <button class="btn-ctrl" title="Mute">
+            <i class="bi bi-volume-up fs-5"></i>
+          </button>
+          <input type="range" class="custom-range volume-range" value="70" min="0" max="100">
+        </div>
+
+        <button class="btn-ctrl ms-1" title="Full screen">
+          <i class="bi bi-arrows-angle-expand"></i>
+        </button>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
